@@ -1,3 +1,5 @@
+using WebApplication1.Controllers;
+
 namespace WebApplication1;
 
 public class Program
@@ -8,6 +10,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddHttpClient<IpClient>();
 
         var app = builder.Build();
 
