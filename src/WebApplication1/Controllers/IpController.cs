@@ -19,6 +19,7 @@ public sealed class IpController : ControllerBase
     public async Task<IActionResult> GetId()
     {
         var ipResponse = await ipClient.GetIpAddressAsync();
+
         return Ok(ipResponse.Ip);
     }
 }
