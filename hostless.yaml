@@ -1,29 +1,32 @@
+# https://docs.hostless.cloud/app/hostlessfile
+
 # Build Configuration
+working_directory: "src/WebApplication1"  # Subdirectory where the app build runs. Defaults to repo root "/"
+
 build:
-  command: "npm install && npm run build"  # Command to build your application
+  # command: "npm install && npm run build"  # Command to build your application
   system: auto                             # Build system: 'auto' (Railpack) or 'docker'
-  min_cpu: 0.5                            # Minimum CPU allocated for builds
-  max_cpu: 2                              # Maximum CPU allocated for builds
-  min_memory: 512                         # Minimum memory in MB for builds
-  max_memory: 1024                        # Maximum memory in MB for builds
+  # min_cpu: 0.5                            # Minimum CPU allocated for builds
+  # max_cpu: 2                              # Maximum CPU allocated for builds
+  # min_memory: 512                         # Minimum memory in MB for builds
+  # max_memory: 1024                        # Maximum memory in MB for builds
 
 # Docker Configuration (optional)
-#dockerfile_path: "./Dockerfile"           # Path to Dockerfile if using Docker build system
-#working_directory: "/"                   # Subdirectory where the app build runs. Defaults to repo root "/"
-#build_context_directory: "/"             # Directory available to the image builder. Defaults to working_directory
-#pre_build_command: "npm run build:shared" # Optional command run from build_context_directory before auto builds
+# dockerfile_path: "./Dockerfile"           Path to Dockerfile if using Docker build system
+# build_context_directory: "/"             # Directory available to the image builder. Defaults to working_directory
+# pre_build_command: "npm run build:shared" # Optional command run from build_context_directory before auto builds
 
 # Post-Build Command (optional)
 #post_build_command: "npm run migrate"     # Command to run after build, before deployment
 
 # Start Command
-start_command: "dotnet WebApplication1.dll --urls http://0.0.0.0:8000"                # Command to start your application
+# start_command: "dotnet WebApplication1.dll --urls http://0.0.0.0:8000"                # Command to start your application
 
 # Scaling Configuration
 scaling:
   trigger: http_requests                  # Scaling trigger type
   min_cpu: 0.1                           # Minimum CPU per replica
-  max_cpu: 1                              # Maximum CPU per replica
+  max_cpu: 0.5                              # Maximum CPU per replica
   min_memory: 128                         # Minimum memory in MB per replica
   max_memory: 1024                        # Maximum memory in MB per replica
   min_replicas: 1                         # Minimum number of replicas
